@@ -1,0 +1,103 @@
+/** General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body {
+    background-color: #fff;
+    color: #34495e;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+.clearfix {
+    zoom:1
+}
+
+.clearfix {
+    content: '.';
+    display: block;
+    clear: both;
+}
+
+/** picture center general*/
+.center {
+    display: block;
+    margin: 15px auto;
+    width: 40%;
+}
+
+/** Headings
+*/
+
+header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0,0,0,0.3)), url(imgs/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 50vh;
+    padding: 1px;
+    margin:0;
+}
+
+h1 {
+    font-weight: 400px;
+    color: white;
+    font-size: 300%;
+    word-spacing: 4px;
+}
+
+.webpage-head {
+    position: relative;
+    top: 50%;
+    left: 10%; 
+}
+
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-top: 60px;
+    border-radius: 200px;
+}
+
+.main-nav li {
+    display: inline;
+
+    margin-right: 60px
+}
+
+h2 {
+    margin-top: 50px;
+    margin-left: 20px
+}
+
+.main-nav li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: whitesmoke;
+    font-size: 90%;
+    
+}
+
+/** Body */
+.member-info {
+    margin-left: 50px;
+    margin-top: 20px;
+    font-style: italic;
+    color: darkgreen;
+}
+
+section {
+    overflow: auto;
+    padding: 1px;
+}
+.webbody p {
+    line-height: 1.7;
+    margin: 20px 50px;
+    padding: 10px;
+}
