@@ -35,17 +35,65 @@
 
             <div id = "Approach">
                 <h2>Approach</h2>
+                <p>Our approach contais three main steps:</p>
+                <ul class = "approach-list">
+                    <li>1. Stylize the photograph with the style that specified by user.</li>
+                    <li>2. Generate mask of portrait with portrait segmentation tool.</li>
+                    <li>3. combine stylized photo with extracted portrait.</li>
+                </ul>
+                <p>Both stylization step and portrait segmentation step use Convolutional Neural Network(CNN), but not exatly the same network architecture. The details of implementations will be introduced in the next section.
+                </p>
             </div>
 
             <div id = "Implementation">
                 <h2>Implementation</h2>
+                <ul class = "implementation-list">
+                    <li>Image Stylization</li>
+                    <p>We implement a style transfer tool by using a publicly distributed Convolutional Neural Network (CNN), VGG-19, which is constructed to perform object recognition. In CNN, the input is images, and at each layer, each image is represented as a set of representations, the object information is increasing explicit along the processing hierarchy.<br>
+                    In our approach, a style picture and a content picture are given to a pre-trained CNN, VGG-19 and corresponding representation can be generated respectively. It is worth to note that the for content image, the representation is extracted from ‘conv4_1’ and style representation is extracted from ‘conv1_1’, ‘conv2_1’, ‘conv3_1’, ‘conv4_1’ and ‘conv5_1’. Then, we start with a noise image to generate the image and use the CNN to calculate the representation of the generated image. We calculate the L2 loss function against the style representation and content representation and denote them as style loss and content loss respectively. We do the optimization on this loss function and after some time of iterations to get a image that can either contain the maintain the content information and be stylized with specific image.</p>
+                    <img class="center" src = "imgs/imple1.png">
+                    <li>Portrait Segmentation</li>
+                    <p>hihihi</p>
+                </ul>
             </div>
-
             <div id = "Results">
                 <h2>Results</h2>
+                <ul class = "result">
+                    <li>Image Stylization: the effect of epoches on stylization result</li>
+                    <p>Firstly, we show how the number of iterations affects the stylization result, when the iteration count is from 0 to 200, 20 per frame. We can see that, initially, the output image is just random noise. When the number of iteration is increasing, the content of the image becomes more and more obvious, and the image becomes more and more stylized.</p>
+                    <div class = "container">
+                        <img src="imgs/style_epoch.png">
+                        <img src = "imgs/Webp.net-gifmaker.gif">
+                    </div>
+                    <p>The output at 200 epoches nicely explains our motivation: int the stylized photo, the portrait shows a strange, orange color. The details of portrait get lost, and the guy in the photo is not handsome! On the other hand, we really like this stylized background. So putting the original portrait into the stylized background is really a good solution!</p>
+                    
+                    <li>Image Stylization: the effect of content-style weight on stylization result</li>
+                    <p>Below we show a set of images with different ratios between content weight and style weight. We can see that, when the content to style ratio is larger or equal to 1:1, there is really not too much difference between the output iamges.</p>
+                    <img class = "center" src="imgs/diff_weights.png" style="width: 60%">
+                    
+                    <li>Portrait Segmentation: the effect of training iterations on segmentation results</li>
+                    <p>The original photo is Yusong (one of our teammates) standing in front of a bookshelf. This is not a task that can be easily segmented, since the photo is taken by iPhone, which means it has a large DOF; also the colors of the portrait is not apparently different from the background. We believe it is fair to use this photo as an example to show the perfermance of our portrait segmentation model, on an average case.<br>
+                    The training epoch has a significant effect on the segmentation performance. When the number of training epoch is small, the generated mask has lot of areas that not actually belongs to the portrait. But when we use 100,000 epoches, the model can generate a perfect mask of the portrait for the original photo.</p>
+                    <img class = "center" src="imgs/seg_diff.png" style="width: 60%">
+                    
+                    <li>Put Them All Together: combine the segmented portrait with stylized background</li>
+                    <p>In this section, we show sets of results that combine the segmented portrait with stylized backgound. In each set, the original photo, the chosen style and portrait mask are provided as the receipe of final output.</p>
+                    <ul class = "combine-result-list">
+                        <li>A combination of original portrait with Japanese-comic styled background:</li>
+                        <img class = "center" src="imgs/fianl_out1.png" style="width: 60%;margin-top: 70px">
+                        
+                        <li>A combination of comic-styled portrait with canvas-styled background:</li>
+                        <img class = "center" src="imgs/fianl_out2.png" style="width: 60%;margin-top: 70px">
+                        
+                        <li>And finally, the photos of our team!</li>
+                        <img class = "center" src="imgs/fianl_out3.png" style="width: 60%;margin-top: 70px">
+                    </ul>
+                </ul>
             </div>
         </section>
         
-        
+        <div class="footer">
+            <p style="padding: 20px 20px;font-size: 15px">If you have any question regarding this project or this webpage, please contact Wei Tang at wtang44 AT wisc dot edu.</p>
+        </div>
     </body>
 </html>
