@@ -77,6 +77,12 @@ h2 {
     margin-left: 100px
 }
 
+h3 {
+    font-size: 123%;
+    margin-left: 100px
+}
+
+
 .main-nav li a {
     text-decoration: none;
     text-transform: uppercase;
@@ -140,4 +146,15 @@ section {
     width: 100%;
     background-color:darkgrey ;
     color: white;
+}
+
+.caption {
+    text-align: center;
+    font-size: 80%;
+}
+
+.reference-list li {
+    font-size: 85%;
+    margin-left: 150px;
+    padding-top: 15px;
 }
