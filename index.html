@@ -59,7 +59,7 @@
                     <figcaption class = "caption">Figure 3. Principles of image stylization CNN.</figcaption>
                     <li>Portrait Segmentation</li>
                     <p>
-                        The potrait segmentation tool we implemented is a fully convolutional network (FCN) from Long et al. (2015). This FCN does dense prediction on each pixel and predict the its probability of being part of the portrait. As shown in Fig. 4, the images used for training are all masked with correct portrait masks. The imput image will be processed and a heatmap will be outputed. In the heatmap, a valued is assigned to each pixel, which represents the how likely it belongs to the potrait. Note that the heatmap is not normalized so that the summation of all predicted values may be larger than 1.
+                        The potrait segmentation tool we implemented is a fully convolutional network (FCN) from Long et al. (2015). This FCN does dense prediction on each pixel and predicts the its probability of being part of the portrait. As shown in Fig. 4, the images used for training are all masked with correct portrait masks. The imput image will be processed and a heatmap will be outputed. In the heatmap, a value is assigned to each pixel, which represents the how likely it belongs to the potrait. Note that the heatmap is not normalized so that the summation of all predicted values may be larger than one.
                     </p>
                     <p>
                         The training data included ~2700 labeled images which may contain one or more portrait objects. As for multiple objects in one image, they will be treated equally and we are not going to distinguish individual object from the rest.
